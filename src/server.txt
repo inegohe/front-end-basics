@@ -1,0 +1,31 @@
+const express = require('express');
+const path = require('path');
+
+const app = express();
+
+app.get('/', (re, res) =>{
+    res.sendFile(path.join(__dirname, 'index.html'));
+})
+
+app.get('/api/users', (req, res) =>{
+    const users = [{
+        id:'123',
+        name: 'Shawn',
+    },{
+        id:'145',
+        name: 'Ivan',
+    },{
+        id:'223',
+        name: 'Evans',
+    }];
+
+    res.json(users);
+})
+
+app.listen(8080, () => {
+    console.log('server is listening on port 8080');
+});
+
+
+
+
